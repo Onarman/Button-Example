@@ -1,0 +1,34 @@
+<html lang>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    </head>
+    <body>
+        <div class="button">
+            <i class="fa-solid loader icon spinner " style="color:purple;width:8px;"><span></span></i>
+            <span class="btn-text" user-selcect="none">Book</span>
+        </div>
+        <script>
+            let btn = document.querySelector(".button"),
+                spinIcon = document.querySelector(".spinner"),
+                btnText = document.querySelector(".btn-text");
+            btn.addEventListener("click", () => {
+                btn.style.cursor = "wait";
+                btn.classList.add("checked");
+                spinIcon.classList.add("spin");
+                btnText.textContent = "";
+            setTimeout(() => {
+                btn.classList.add("confirmed");
+                btn.style.pointerEvents = "none";
+                spinIcon.classList.replace("spinner", "check");
+                spinIcon.classList.replace("loader", "fa-check");
+                btnText.textContent = "Confirm";
+                btn.style.background = "rgba(39,221,101,1)";
+            }, 4500) 
+            });
+        </script>
+    </body>
+</html>
